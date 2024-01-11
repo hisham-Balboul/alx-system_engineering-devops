@@ -41,6 +41,7 @@ frontend hbalboul.tech
         bind *:80
         stats uri /haproxy?stats
         default_backend web-backend
+	redirect scheme https code 301 if !{ ssl_fc }
 frontend www-http
         bind *:80
         reqadd X-Forwarded-Proto:\ http
